@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><wpdoc><class><name>PackageLoader_ILoader</name><description><![CDATA[Интерфейс Loader-класса для пакетов
+
+@author Max
+@copyright WebProduction
+@package PackageLoader]]></description><method><name>__construct</name><description><![CDATA[В конструктор передается массив параметров,
+на которые может реагировать пакет
+
+@param array $paramsArray]]></description><parameter><name>paramsArray</name></parameter></method></class><class><name>PackageLoader_Exception</name><description><![CDATA[@author Max
+@copyright WebProduction
+@package PackageLoader]]></description><method><name>__construct</name><description><![CDATA[]]></description><parameter><name>message</name></parameter><parameter><name>code</name></parameter></method><method><name>__toString</name><description><![CDATA[]]></description></method><method><name>getMessage</name><description><![CDATA[]]></description></method><method><name>getCode</name><description><![CDATA[]]></description></method><method><name>getFile</name><description><![CDATA[]]></description></method><method><name>getLine</name><description><![CDATA[]]></description></method><method><name>getTrace</name><description><![CDATA[]]></description></method><method><name>getTraceAsString</name><description><![CDATA[]]></description></method></class><class><name>PackageLoader</name><description><![CDATA[Загрузчик WebProduction Packages
+
+@author Max
+@copyright WebProduction
+@package PackageLoader]]></description><method><name>setPackagesPath</name><description><![CDATA[Установить путь к пакетам. Путь можно менять во время работы.
+
+@param string $path]]></description><parameter><name>path</name></parameter></method><method><name>loadClass</name><description><![CDATA[Подключить класс (загрузить его)
+
+@param string $className]]></description><parameter><name>className</name></parameter></method><method><name>Get</name><static /><description><![CDATA[@return PackageLoader]]></description></method><method><name>registerPHPClass</name><description><![CDATA[Зарегистрировать PHP-класс, чтобы PackageLoader
+мог его загружать
+
+@param string $file]]></description><parameter><name>file</name></parameter></method><method><name>registerPHPDirectory</name><description><![CDATA[Зарегистрировать директорию с php-классами.
+Не рекомендуется к использованию, так как порядок
+подключения может быть абсолютно рандомный.
+
+@deprecated
+@see registerPHPClass()
+@param string $dir]]></description><parameter><name>dir</name></parameter></method><method><name>registerJSFile</name><description><![CDATA[Зарегистрировать JS-файл
+
+@param string $file]]></description><parameter><name>file</name></parameter><parameter><name>absolutePath</name></parameter></method><method><name>registerCSSFile</name><description><![CDATA[Зарегистрировать CSS-файл
+
+@param string $file]]></description><parameter><name>file</name></parameter><parameter><name>absolutePath</name></parameter></method><method><name>getCSSFiles</name><description><![CDATA[Получить все css-файлы, которые нужно подключить
+
+@return array]]></description></method><method><name>getJSFiles</name><description><![CDATA[Получить все js-файлы, которые нужно подключить
+
+@return array]]></description></method><method><name>import</name><description><![CDATA[Подключить пакет.
+В $package можно передать только имя пакета
+или абсолютный путь к директории пакета
+
+@throws PackageLoader_Exception
+@param string $package
+@param mixed $paramsArray
+@return bool]]></description><parameter><name>package</name></parameter><parameter><name>paramsArray</name></parameter></method><method><name>registerCSSData</name><description><![CDATA[Зарегистрировать CSS-данные
+
+@param string $data
+@param bool $compile Разрешить скомпилировать в файл?]]></description><parameter><name>data</name></parameter><parameter><name>compile</name></parameter></method><method><name>registerJSData</name><description><![CDATA[Зарегистрировать JavaScript-данные
+
+@param string $data
+@param bool $compile Разрешить скомпилировать в файл?]]></description><parameter><name>data</name></parameter><parameter><name>compile</name></parameter></method><method><name>getCSSData</name><description><![CDATA[Получить зарегистрированные CSS-данные (css-код)
+
+@return string]]></description></method><method><name>getJSData</name><description><![CDATA[Получить зарегистрированные JavaScript-данные (js-код)
+
+@return string]]></description></method><method><name>isImported</name><description><![CDATA[Проверить, подключен ли пакет
+
+@param string $packageName
+@return bool]]></description><parameter><name>packageName</name></parameter></method><method><name>registerCSSDataProcessor</name><description><![CDATA[]]></description><parameter><name>processor</name></parameter></method><method><name>registerJSDataProcessor</name><description><![CDATA[]]></description><parameter><name>processor</name></parameter></method><method><name>registerDataProcessor</name><description><![CDATA[]]></description><parameter><name>processor</name></parameter><parameter><name>type</name></parameter></method></class><class><name>PackageLoader_IDataProcessor</name><description><![CDATA[Интерфейс data-процессора
+
+@author Max
+@copyright WebProduction
+@package PackageLoader]]></description><method><name>processBefore</name><description><![CDATA[Вызывается в момент поступления данных в PackageLoader
+(в момент registerCSS[JS]Data())
+
+@param string $data
+@return string]]></description><parameter><name>data</name></parameter></method><method><name>processAfter</name><description><![CDATA[Вызывается в момент получения данных из PackageLoader'a
+(в момент getCSS[JS]Data())
+
+@param string $data
+@return string]]></description><parameter><name>data</name></parameter></method></class></wpdoc>
