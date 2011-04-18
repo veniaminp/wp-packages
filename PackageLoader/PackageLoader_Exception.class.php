@@ -32,7 +32,7 @@ class PackageLoader_Exception extends Exception {
         if (class_exists('DebugException')) {
             return DebugException::Display($this, __CLASS__);
         }
-
+	//kote!
         return parent::__toString();
     }
 
