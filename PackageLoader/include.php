@@ -21,6 +21,7 @@
  * @author Max
  * @copyright WebProduction
  * @package PackageLoader
+ * kote!
  */
 
 include_once(dirname(__FILE__).'/PackageLoader.class.php');
